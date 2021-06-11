@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "260986008091",
+    "project_id": "mycontacts-9ae1f",
+    "storage_bucket": "mycontacts-9ae1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260986008091:android:10cb48b974dba19ab0febe",
+        "android_client_info": {
+          "package_name": "com.lazymindapps.mycontacts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260986008091-5hnaqsdalh7guc61qihf2ap76qohdhsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOVPu-r_6d_vJ47Xf3VPrtfID9SpShLGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260986008091-5hnaqsdalh7guc61qihf2ap76qohdhsd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

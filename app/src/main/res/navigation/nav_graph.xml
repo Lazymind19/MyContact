@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.lazymindapps.mycontacts.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_savedContactFragment"
+            app:destination="@id/savedContactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.lazymindapps.mycontacts.ui.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/afterLoginFragment"
+        android:name="com.lazymindapps.mycontacts.ui.AfterLoginFragment"
+        android:label="fragment_after_login"
+        tools:layout="@layout/fragment_after_login" >
+        <action
+            android:id="@+id/action_afterLoginFragment_to_loginFragment2"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_afterLoginFragment_to_savedContactFragment"
+            app:destination="@id/savedContactFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/savedContactFragment"
+        android:name="com.lazymindapps.mycontacts.ui.SavedContactFragment"
+        android:label="fragment_saved_contacts"
+        tools:layout="@layout/fragment_saved_contacts" >
+        <action
+            android:id="@+id/action_savedContactFragment_to_afterLoginFragment2"
+            app:destination="@id/afterLoginFragment" />
+        <action
+            android:id="@+id/action_savedContactFragment_to_contactProfileFragment"
+            app:destination="@id/contactProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactProfileFragment"
+        android:name="com.lazymindapps.mycontacts.ui.ContactProfileFragment"
+        android:label="fragment_contact_profile"
+        tools:layout="@layout/fragment_contact_profile" >
+        <argument
+            android:name="singleContact"
+            app:argType="com.lazymindapps.mycontacts.model.Contact" />
+        <action
+            android:id="@+id/action_contactProfileFragment_to_updateContactFragment"
+            app:destination="@id/updateContactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateContactFragment"
+        android:name="com.lazymindapps.mycontacts.ui.UpdateContactFragment"
+        android:label="fragment_update_contact"
+        tools:layout="@layout/fragment_update_contact" >
+        <argument
+            android:name="updateContact"
+            app:argType="com.lazymindapps.mycontacts.model.Contact" />
+        <action
+            android:id="@+id/action_updateContactFragment_to_savedContactFragment"
+            app:destination="@id/savedContactFragment" />
+    </fragment>
+</navigation>
