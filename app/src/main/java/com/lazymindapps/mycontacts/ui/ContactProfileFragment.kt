@@ -12,12 +12,19 @@ import androidx.navigation.fragment.navArgs
 import com.lazymindapps.mycontacts.databinding.FragmentContactProfileBinding
 import com.lazymindapps.mycontacts.model.Contact
 import com.lazymindapps.mycontacts.viewModel.LoginViewModel
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-class ContactProfileFragment :Fragment() {
+class ContactProfileFragment :Fragment(),CoroutineScope {
     private var bindingContactProfile:FragmentContactProfileBinding?=null
     private val args:ContactProfileFragmentArgs by navArgs()
     private var singleContact:Contact?=null
     lateinit var loginViewModel: LoginViewModel
+
+    private val job = Job()
+
+    override val coroutineContext: CoroutineContext
+        get() = job+Dispatchers.Main
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         bindingContactProfile = FragmentContactProfileBinding.inflate(inflater,container,false)
@@ -45,6 +52,15 @@ class ContactProfileFragment :Fragment() {
         bindingContactProfile!!.btnCall.setOnClickListener {
             val num = singleContact!!.number
             loginViewModel.makeCall(num)
+
+        }
+        bindingContactProfile!!.btnDelete.setOnClickListener {
+            launch {
+                loginViewModel.deleteContact(singleContact!!)
+                val action = ContactProfileFragmentDirections.actionContactProfileFragmentToSavedContactFragment()
+                findNavController().navigate(action)
+
+            }
 
         }
 

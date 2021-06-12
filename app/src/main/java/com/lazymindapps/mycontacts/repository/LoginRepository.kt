@@ -155,7 +155,36 @@ try {
         conxtext.startActivity(dialIntent)
     }
 
+    suspend fun deleteContact(contact:Contact) = withContext(Dispatchers.IO){
+        val deleteQuery = contactCollection.whereEqualTo("firstName",contact.firstName)
+            .whereEqualTo("lastName",contact.lastName)
+            .whereEqualTo("number",contact.number)
+            .whereEqualTo("userId",contact.userId)
+            .get()
+            .await()
+
+        if (deleteQuery.documents.isNotEmpty()){
+            for (document in deleteQuery) {
+                try {
+                    contactCollection.document(document.id).delete().await()
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(conxtext, "Contact Deleted", Toast.LENGTH_LONG).show()
+                    }
+                }catch (e:Exception){
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(conxtext,e.message,Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+        }else {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(conxtext, "No any contact found", Toast.LENGTH_LONG).show()
+            }
+        }
+        }
+    }
 
 
 
-}
+
+

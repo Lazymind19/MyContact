@@ -44,5 +44,9 @@ class LoginViewModel(
         repository.makeCall(number)
     }
 
+    suspend fun deleteContact(contact:Contact) = withContext(Dispatchers.IO){
+        repository.deleteContact(contact)
+    }
+
 
 }

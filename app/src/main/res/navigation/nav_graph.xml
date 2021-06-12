@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_contactProfileFragment_to_updateContactFragment"
             app:destination="@id/updateContactFragment" />
+        <action
+            android:id="@+id/action_contactProfileFragment_to_savedContactFragment"
+            app:destination="@id/savedContactFragment" />
     </fragment>
     <fragment
         android:id="@+id/updateContactFragment"
