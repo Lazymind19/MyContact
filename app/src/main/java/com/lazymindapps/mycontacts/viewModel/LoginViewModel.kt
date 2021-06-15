@@ -48,5 +48,9 @@ class LoginViewModel(
         repository.deleteContact(contact)
     }
 
+    suspend fun forgetPassword(email:String):Boolean = withContext(Dispatchers.IO){
+        repository.forgetPassword(email)
+    }
+
 
 }

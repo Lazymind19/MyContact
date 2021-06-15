@@ -12,7 +12,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-       android:src="@drawable/img"
+       android:background="@drawable/ic_baseline_account_circle_75"
         android:layout_marginTop="20dp"
 
         android:textColor="@android:color/white"

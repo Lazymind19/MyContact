@@ -12,10 +12,14 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_loginFragment_to_savedContactFragment"
-            app:destination="@id/savedContactFragment" />
+            app:destination="@id/savedContactFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -30,10 +34,14 @@
         <action
             android:id="@+id/action_afterLoginFragment_to_loginFragment2"
             app:destination="@id/loginFragment"
-            app:popUpToInclusive="true"/>
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_afterLoginFragment_to_savedContactFragment"
-            app:destination="@id/savedContactFragment" />
+            app:destination="@id/savedContactFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
 
     </fragment>
     <fragment
@@ -43,10 +51,14 @@
         tools:layout="@layout/fragment_saved_contacts" >
         <action
             android:id="@+id/action_savedContactFragment_to_afterLoginFragment2"
-            app:destination="@id/afterLoginFragment" />
+            app:destination="@id/afterLoginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_savedContactFragment_to_contactProfileFragment"
-            app:destination="@id/contactProfileFragment" />
+            app:destination="@id/contactProfileFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/contactProfileFragment"
@@ -58,10 +70,14 @@
             app:argType="com.lazymindapps.mycontacts.model.Contact" />
         <action
             android:id="@+id/action_contactProfileFragment_to_updateContactFragment"
-            app:destination="@id/updateContactFragment" />
+            app:destination="@id/updateContactFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_contactProfileFragment_to_savedContactFragment"
-            app:destination="@id/savedContactFragment" />
+            app:destination="@id/savedContactFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/updateContactFragment"

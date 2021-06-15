@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -182,6 +183,35 @@ try {
             }
         }
         }
+
+    suspend fun forgetPassword(email:String) :Boolean = withContext(Dispatchers.IO){
+        try {
+            Firebase.auth.sendPasswordResetEmail(email).addOnCompleteListener{task->
+                if (task.isSuccessful){
+                    Toast.makeText(conxtext,"Password reset link is sent to your email...",Toast.LENGTH_LONG).show()
+
+                }
+                else{
+                    Toast.makeText(conxtext, task.exception?.message,Toast.LENGTH_LONG).show()
+
+                }
+
+            }
+            return@withContext true
+        }catch (e:Exception){
+            withContext(Dispatchers.Main){
+                Toast.makeText(conxtext,e.message,Toast.LENGTH_LONG).show()
+
+
+
+            }
+            return@withContext  false
+        }
+
+
+
+
+    }
     }
 
 
